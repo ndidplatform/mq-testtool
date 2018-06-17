@@ -1,0 +1,8 @@
+version: "3.3"
+services: 
+  mq-testtools:
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+    image: ndidplatform/mq-testtools:latest
+    
