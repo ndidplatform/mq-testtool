@@ -1,1 +1,1 @@
-docker run --rm -it --network=docker_mq-testtool --name mq-node3 -p "4452:4444" ndidplatform/mq-testtools /bin/bash -c "node mqTestNode mq-node3 4444 mq-host 4444"
+docker run --rm -d --network=docker_mq-testtool --name mq-node3 -p "4452:4444" ndidplatform/mq-testtools /bin/bash -c "node mqTestNode mq-node3 4444 mq-host 4444"

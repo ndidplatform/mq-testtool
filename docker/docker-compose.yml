@@ -2,8 +2,6 @@ version: '3'
 services:
   mq-host:
     image: ndidplatform/mq-testtools:latest
-    environment:
-      - ROLE=ndid
     ports:
       - "8080:8080"
       - "4444:4444"
@@ -12,11 +10,16 @@ services:
       - mq-testtool
   mq-node1:
     image: ndidplatform/mq-testtools:latest
-    environment:
-      - ROLE=ndid
     ports:
       - "4450:4444"
     command: bash -c "node mqTestNode mq-node1 4444 mq-host 4444"
+    networks:
+      - mq-testtool
+  mq-node2:
+    image: ndidplatform/mq-testtools:latest
+    ports:
+      - "4451:4444"
+    command: bash -c "node mqTestNode mq-node2 4444 mq-host 4444"
     networks:
       - mq-testtool
 networks:
